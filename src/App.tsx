@@ -1,5 +1,11 @@
+import Todos from "./components/task5/Todos";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Todos />
+    </>
+  );
 }
 
 export default App;
