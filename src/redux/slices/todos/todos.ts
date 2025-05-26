@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { InitialState, Status } from "./types";
+import type { InitialState, Status, Todo } from "./types";
 import { v4 as uuidv4 } from "uuid";
 import type { PayloadAction } from "@reduxjs/toolkit";
 const initialState: InitialState = {
@@ -12,6 +12,9 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    initTodos: (state, action: PayloadAction<Todo[]>) => {
+      state.todos = action.payload;
+    },
     addTodo: (state, action: PayloadAction<string>) => {
       state.todos = [
         ...state.todos,
@@ -51,5 +54,6 @@ export const {
   filterByStatus,
   markAllDone,
   markTodo,
+  initTodos,
 } = todosSlice.actions;
 export default todosSlice.reducer;

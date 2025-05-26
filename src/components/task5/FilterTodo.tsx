@@ -2,8 +2,8 @@ import {
   filterByName,
   filterByStatus,
   markAllDone,
-} from "../../redux/slices/todos";
-import type { Status } from "../../redux/slices/types";
+} from "../../redux/slices/todos/todos";
+import type { Status } from "../../redux/slices/todos/types";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 const FilterTodo = () => {
