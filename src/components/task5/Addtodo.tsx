@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/store";
-import { toggleTimer } from "../../redux/slices/timer/timer";
+import { resetTimer, toggleTimer } from "../../redux/slices/timer/timer";
 import { toast } from "react-toastify";
 import { addTodo } from "../../redux/slices/todos/todos";
 import { GoPlus } from "react-icons/go";
@@ -10,7 +10,6 @@ const Addtodo = () => {
   const dispatch = useAppDispatch();
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(toggleTimer(false));
     setName(e.target.value);
     dispatch(toggleTimer(true));
   };
@@ -18,10 +17,15 @@ const Addtodo = () => {
   const handleAddTodo = () => {
     if (name.trim().length === 0)
       return toast.error("Please enter a valid name!");
-
     dispatch(addTodo(name));
     setName("");
+    dispatch(resetTimer());
   };
+
+  const handleOffTimer = () => {
+    dispatch(toggleTimer(false));
+  };
+
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -31,6 +35,7 @@ const Addtodo = () => {
         type="text"
         placeholder="Enter something..."
         value={name}
+        onBlur={handleOffTimer}
         onChange={handleChangeName}
         className="bg-white px-4 py-2 flex-1 outline-none border border-white focus:border-pink-300"
       />

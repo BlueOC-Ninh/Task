@@ -4,12 +4,13 @@ import FilterTodo from "./FilterTodo";
 import { useAppDispatch } from "../../redux/store";
 import Timer from "./Timer";
 import Addtodo from "./Addtodo";
+import { todos_fetchTodos } from "../../redux/functions";
 
 const Todos = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch({ type: "todos/fetchTodos" });
+    dispatch(todos_fetchTodos());
   }, []);
 
   return (
