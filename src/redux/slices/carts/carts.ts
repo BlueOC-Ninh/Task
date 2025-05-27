@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { CartItem } from "../../../api/cartsApi";
+import type { CartItem, UpdateCartPayload } from "../../../api/cartsApi";
 
 interface InitialState {
   carts: CartItem[];
@@ -43,31 +43,17 @@ const cartsSlice = createSlice({
         state.carts.push(action.payload);
       }
     },
-    deleteFromCart: (state, action: PayloadAction<number>) => {
-      state.carts = state.carts.filter(
-        (item) => item.productId !== action.payload
-      );
+    deleteFromCart: (state, action: PayloadAction<string>) => {
+      state.carts = state.carts.filter((item) => item.id !== action.payload);
     },
-    incrementQuantity: (state, action: PayloadAction<number>) => {
+    updateQuantity: (state, action: PayloadAction<UpdateCartPayload>) => {
       const index = state.carts.findIndex(
-        (item) => item.productId === action.payload
+        (item) => item.id === action.payload.id
       );
       if (index !== -1) {
         state.carts[index] = {
           ...state.carts[index],
-          quantity: state.carts[index].quantity + 1,
-        };
-      }
-    },
-    decrementQuantity: (state, action: PayloadAction<number>) => {
-      const index = state.carts.findIndex(
-        (item) => item.productId === action.payload
-      );
-
-      if (index !== -1) {
-        state.carts[index] = {
-          ...state.carts[index],
-          quantity: state.carts[index].quantity - 1,
+          quantity: action.payload.quantity,
         };
       }
     },
@@ -80,7 +66,6 @@ export const {
   getCartsFailure,
   addToCart,
   deleteFromCart,
-  incrementQuantity,
-  decrementQuantity,
+  updateQuantity,
 } = cartsSlice.actions;
 export default cartsSlice.reducer;

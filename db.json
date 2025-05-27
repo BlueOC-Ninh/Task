@@ -5,7 +5,7 @@
       "name": "Áo Thun Nam Trơn",
       "price": 199000,
       "description": "Áo thun nam chất liệu cotton 100%",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_FRJ0001_1.jpg",
       "category": "áo"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Áo Sơ Mi Trắng Nữ",
       "price": 249000,
       "description": "Áo sơ mi nữ trắng thanh lịch",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_FRJ0002_1.jpg",
       "category": "áo"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Quần Jeans Nam",
       "price": 399000,
       "description": "Quần jeans co giãn thoải mái",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00214_1.jpg",
       "category": "quần"
     },
     {
@@ -29,7 +29,7 @@
       "name": "Chân Váy Xếp Ly",
       "price": 279000,
       "description": "Chân váy xếp ly thời trang nữ",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00175_1.jpg",
       "category": "váy",
       "size": [
         "S",
@@ -41,7 +41,7 @@
       "name": "Áo Khoác Hoodie",
       "price": 459000,
       "description": "Áo hoodie chất vải nỉ dày",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00176_1.jpg",
       "category": "áo khoác",
       "size": [
         "L",
@@ -53,7 +53,7 @@
       "name": "Quần Tây Công Sở",
       "price": 349000,
       "description": "Quần tây dành cho dân văn phòng",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00194_1.jpg",
       "category": "quần"
     },
     {
@@ -61,7 +61,7 @@
       "name": "Áo Croptop Nữ",
       "price": 189000,
       "description": "Áo croptop thời trang cho nữ",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00131_1.jpg",
       "category": "áo",
       "size": [
         "S",
@@ -73,7 +73,7 @@
       "name": "Đầm Dạo Phố",
       "price": 329000,
       "description": "Đầm nữ đẹp dạo phố",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/pro_AV00114_1.jpg",
       "category": "váy"
     },
     {
@@ -81,7 +81,7 @@
       "name": "Áo Thun Trẻ Em",
       "price": 99000,
       "description": "Áo thun cotton cho bé",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00214_1.jpg",
       "category": "trẻ em"
     },
     {
@@ -89,34 +89,50 @@
       "name": "Quần Short Nam",
       "price": 219000,
       "description": "Quần short thoáng mát cho nam",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ananas.vn/wp-content/uploads/Pro_AV00001_1.jpg",
       "category": "quần"
     }
   ],
   "cart": [
     {
+      "id": "04df8e3f-1404-4002-a58d-96529eedb0b3",
+      "productId": 5,
+      "quantity": 7,
+      "productImg": "https://ananas.vn/wp-content/uploads/Pro_AV00176_1.jpg",
+      "productName": "Áo Khoác Hoodie",
+      "productPrice": 459000
+    },
+    {
+      "id": "2066adb4-5fa1-46b8-ba91-faa5a39429d9",
       "productId": 5,
       "quantity": 1,
-      "productImg": "https://via.placeholder.com/150",
+      "productImg": "https://ananas.vn/wp-content/uploads/Pro_AV00176_1.jpg",
       "productName": "Áo Khoác Hoodie",
-      "productPrice": 459000,
-      "id": 1
+      "productPrice": 459000
     },
     {
-      "productId": 4,
+      "id": "cec9fc22-20db-4972-90b6-bf8f9344ed92",
+      "productId": 1,
       "quantity": 1,
-      "productImg": "https://via.placeholder.com/150",
-      "productName": "Chân Váy Xếp Ly",
-      "productPrice": 279000,
-      "id": 2
+      "productImg": "https://ananas.vn/wp-content/uploads/Pro_FRJ0001_1.jpg",
+      "productName": "Áo Thun Nam Trơn",
+      "productPrice": 199000
     },
     {
+      "id": "425bccb4-770c-4e2a-99e7-cebfe17d6d47",
       "productId": 2,
       "quantity": 1,
-      "productImg": "https://via.placeholder.com/150",
+      "productImg": "https://ananas.vn/wp-content/uploads/Pro_FRJ0002_1.jpg",
       "productName": "Áo Sơ Mi Trắng Nữ",
-      "productPrice": 249000,
-      "id": 3
+      "productPrice": 249000
+    },
+    {
+      "id": "abbd20e8-ce49-435b-b52a-7986d5cf278b",
+      "productId": 2,
+      "quantity": 1,
+      "productImg": "https://ananas.vn/wp-content/uploads/Pro_FRJ0002_1.jpg",
+      "productName": "Áo Sơ Mi Trắng Nữ",
+      "productPrice": 249000
     }
   ]
 }

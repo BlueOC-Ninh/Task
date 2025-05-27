@@ -3,9 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 const SearchProducts = () => {
   const { search } = useAppSelector((state) => state.products);
-
   const dispatch = useAppDispatch();
-
   const handleChangeSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterByName(e.target.value));
   };

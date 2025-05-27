@@ -7,7 +7,6 @@ const Task6 = () => {
     <div>
       <SearchProducts />
       <ProductList />
-      <h1 className="text-center text-4xl text-blue-700 font-bold">Cart</h1>
       <Cart />
     </div>
   );

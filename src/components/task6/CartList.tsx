@@ -1,29 +1,37 @@
 import { useEffect } from "react";
-import {
-  decrementQuantity,
-  deleteFromCart,
-  getCarts,
-  incrementQuantity,
-} from "../../redux/slices/carts/carts";
+import { deleteFromCart, getCarts } from "../../redux/slices/carts/carts";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 const CartList = () => {
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
 
+  const handleIncrement = (id: string) => {
+    dispatch({
+      type: "carts/incrementQuantity",
+      payload: id,
+    });
+  };
+
+  const handleDecrement = (id: string) => {
+    dispatch({
+      type: "carts/decrementQuantity",
+      payload: id,
+    });
+  };
   useEffect(() => {
     dispatch(getCarts());
-  }, [dispatch]);
+  }, []);
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Giỏ hàng</h2>
+    <div className="p-4 mt-10">
+      <h2 className=" font-bold mb-4 text-3xl">Giỏ hàng</h2>
       {carts.length > 0 ? (
         <div className="space-y-4">
           {carts.map((item) => (
             <div
-              key={item.productId}
-              className="flex items-center p-4 border rounded-lg shadow-sm"
+              key={item.id}
+              className="flex items-center p-4  rounded-lg shadow-sm"
             >
               <img
                 src={item.productImg}
@@ -39,28 +47,28 @@ const CartList = () => {
 
                 <div className="flex items-center mt-2">
                   <button
-                    onClick={() => dispatch(decrementQuantity(item.productId))}
-                    className="px-2 py-1 text-sm bg-gray-200 rounded-l hover:bg-gray-300"
+                    onClick={() => handleDecrement(item.id)}
+                    className="px-2 py-1 text-sm bg-gray-200 rounded-r hover:bg-gray-300 cursor-pointer"
                   >
                     -
                   </button>
                   <span className="px-3">{item.quantity}</span>
                   <button
-                    onClick={() => dispatch(incrementQuantity(item.productId))}
-                    className="px-2 py-1 text-sm bg-gray-200 rounded-r hover:bg-gray-300"
+                    onClick={() => handleIncrement(item.id)}
+                    className="px-2 py-1 text-sm bg-gray-200 rounded-r hover:bg-gray-300 cursor-pointer"
                   >
                     +
                   </button>
                 </div>
 
-                <p className="text-sm font-medium text-green-600 mt-2">
+                <p className="text-sm font-medium text-[#F15E2C] mt-2">
                   Tổng: {(item.productPrice * item.quantity).toLocaleString()}đ
                 </p>
               </div>
 
               <button
-                onClick={() => dispatch(deleteFromCart(item.productId))}
-                className="ml-4 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                onClick={() => dispatch(deleteFromCart(item.id))}
+                className="ml-4 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 cursor-pointer"
               >
                 Xóa
               </button>

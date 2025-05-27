@@ -1,6 +1,7 @@
 import axiosClient from "./axiosConfig";
 
 export interface CartItem {
+  id: string;
   productId: number;
   productImg: string;
   productName: string;
@@ -13,7 +14,7 @@ export interface Cart {
 }
 
 export interface UpdateCartPayload {
-  productId: number;
+  id: string;
   quantity: number;
 }
 
@@ -23,32 +24,45 @@ const cartApi = {
     return res.data as CartItem[];
   },
 
-  getByProductId: async (id: number) => {
-    const res = await axiosClient.get(`/cart?productId=${id}`);
-    const data = res.data;
-    if (Array.isArray(data)) {
-      return data.length > 0 ? data[0] : undefined;
+  getById: async (id: string) => {
+    try {
+      const res = await axiosClient.get(`/cart/${id}`);
+      return res.data as CartItem;
+    } catch (err: any) {
+      if (err.response?.status === 404) {
+        return undefined;
+      }
+      throw err;
     }
-    return data as CartItem | undefined;
   },
 
   add: async (item: CartItem) => {
     const res = await axiosClient.post("/cart", item);
-    console.log(res);
     return res.data as CartItem;
   },
 
-  incrementQuantity: async (id: number) => {
-    const res = await axiosClient.patch(`/cart/product/${id}/increment`);
+  updateQuantity: async (data: UpdateCartPayload) => {
+    const res = await axiosClient.patch(`/cart/${data.id}`, {
+      quantity: data.quantity,
+    });
     return res.data as CartItem;
   },
-  decrementQuantity: async (id: number) => {
-    const res = await axiosClient.patch(`/cart/product/${id}}/decrement`);
-    return res.data as CartItem;
-  },
-  remove: async (id: number) => {
+
+  remove: async (id: string) => {
     const res = await axiosClient.delete(`/cart/${id}`);
     return res.data as CartItem;
+  },
+
+  findByProductId: async (productId: number) => {
+    try {
+      const res = await axiosClient.get(`/cart?productId=${productId}`);
+      return res.data as CartItem[];
+    } catch (err: any) {
+      if (err.response?.status === 404) {
+        return undefined;
+      }
+      throw err;
+    }
   },
 };
 

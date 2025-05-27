@@ -1,12 +1,12 @@
-import Todos from "./components/task5/Todos";
+// import Todos from "./components/task5/Todos";
 import Task6 from "./components/task6/Task6";
 
 function App() {
   return (
     <>
-      <Todos />
+      {/* <Todos /> */}
 
-      {/* <Task6 /> */}
+      <Task6 />
     </>
   );
 }
