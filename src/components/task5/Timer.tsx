@@ -1,7 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { resetTimer, toggleTimer } from "../../redux/slices/timer/timer";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 
 const Timer = () => {
   const timer = useAppSelector((state) => state.timer);
@@ -10,17 +8,6 @@ const Timer = () => {
   const handleChangeTimerStatus = (e: any) => {
     dispatch(toggleTimer(e.target.checked));
   };
-
-  useEffect(() => {
-    if (timer.time === 10) {
-      toast.warning(
-        "Time is about to end, you have 5 seconds left to save information."
-      );
-    } else if (timer.time === 15) {
-      toast.error("Time is up!");
-      dispatch(resetTimer());
-    }
-  }, [timer]);
 
   return (
     <div className="flex justify-center items-center gap-5 mb-10">

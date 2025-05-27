@@ -1,32 +1,40 @@
-import { all, cancel, delay, fork, put, take } from "redux-saga/effects";
+import {
+  all,
+  cancel,
+  delay,
+  fork,
+  put,
+  select,
+  take,
+} from "redux-saga/effects";
 import { plusTime, resetTimer, toggleTimer } from "./timer";
+import { toast } from "react-toastify";
 
 function* watchTimerFlow(): Generator<any, void, any> {
   let task: any = null;
 
   while (true) {
-    const action = yield take([toggleTimer.toString(), resetTimer.toString()]);
+    const action = yield take([toggleTimer.type, resetTimer.type]);
 
-    if (action.type === toggleTimer.toString()) {
+    const isToggle = action.type === toggleTimer.type;
+    const isReset = action.type === resetTimer.type;
+
+    if (isToggle) {
       const isRunning = action.payload;
 
-      if (isRunning) {
-        if (!task) {
-          task = yield fork(watchPlustTimer);
-        }
-      } else {
-        if (task) {
-          yield cancel(task);
-          task = null;
-        }
+      if (isRunning && !task) {
+        task = yield fork(watchPlustTimer);
       }
-    }
 
-    if (action.type === resetTimer.toString()) {
-      if (task) {
+      if (!isRunning && task) {
         yield cancel(task);
         task = null;
       }
+    }
+
+    if (isReset && task) {
+      yield cancel(task);
+      task = null;
     }
   }
 }
@@ -35,10 +43,22 @@ function* watchResetTimer() {
   yield put(resetTimer());
 }
 
-function* watchPlustTimer(): Generator<any, void, any> {
+function* watchPlustTimer() {
   while (true) {
     yield delay(1000);
     yield put(plusTime());
+
+    const currentTime: number = yield select((state) => state.timer.time);
+
+    if (currentTime === 50) {
+      toast.warning(
+        "Time is about to end, you have 10 seconds left to save information."
+      );
+    } else if (currentTime === 60) {
+      toast.error("Time is up!");
+      yield put(resetTimer());
+      return;
+    }
   }
 }
 
