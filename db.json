@@ -1,0 +1,122 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Áo Thun Nam Trơn",
+      "price": 199000,
+      "description": "Áo thun nam chất liệu cotton 100%",
+      "image": "https://via.placeholder.com/150",
+      "category": "áo"
+    },
+    {
+      "id": 2,
+      "name": "Áo Sơ Mi Trắng Nữ",
+      "price": 249000,
+      "description": "Áo sơ mi nữ trắng thanh lịch",
+      "image": "https://via.placeholder.com/150",
+      "category": "áo"
+    },
+    {
+      "id": 3,
+      "name": "Quần Jeans Nam",
+      "price": 399000,
+      "description": "Quần jeans co giãn thoải mái",
+      "image": "https://via.placeholder.com/150",
+      "category": "quần"
+    },
+    {
+      "id": 4,
+      "name": "Chân Váy Xếp Ly",
+      "price": 279000,
+      "description": "Chân váy xếp ly thời trang nữ",
+      "image": "https://via.placeholder.com/150",
+      "category": "váy",
+      "size": [
+        "S",
+        "M"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Áo Khoác Hoodie",
+      "price": 459000,
+      "description": "Áo hoodie chất vải nỉ dày",
+      "image": "https://via.placeholder.com/150",
+      "category": "áo khoác",
+      "size": [
+        "L",
+        "XL"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Quần Tây Công Sở",
+      "price": 349000,
+      "description": "Quần tây dành cho dân văn phòng",
+      "image": "https://via.placeholder.com/150",
+      "category": "quần"
+    },
+    {
+      "id": 7,
+      "name": "Áo Croptop Nữ",
+      "price": 189000,
+      "description": "Áo croptop thời trang cho nữ",
+      "image": "https://via.placeholder.com/150",
+      "category": "áo",
+      "size": [
+        "S",
+        "M"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Đầm Dạo Phố",
+      "price": 329000,
+      "description": "Đầm nữ đẹp dạo phố",
+      "image": "https://via.placeholder.com/150",
+      "category": "váy"
+    },
+    {
+      "id": 9,
+      "name": "Áo Thun Trẻ Em",
+      "price": 99000,
+      "description": "Áo thun cotton cho bé",
+      "image": "https://via.placeholder.com/150",
+      "category": "trẻ em"
+    },
+    {
+      "id": 10,
+      "name": "Quần Short Nam",
+      "price": 219000,
+      "description": "Quần short thoáng mát cho nam",
+      "image": "https://via.placeholder.com/150",
+      "category": "quần"
+    }
+  ],
+  "cart": [
+    {
+      "productId": 5,
+      "quantity": 1,
+      "productImg": "https://via.placeholder.com/150",
+      "productName": "Áo Khoác Hoodie",
+      "productPrice": 459000,
+      "id": 1
+    },
+    {
+      "productId": 4,
+      "quantity": 1,
+      "productImg": "https://via.placeholder.com/150",
+      "productName": "Chân Váy Xếp Ly",
+      "productPrice": 279000,
+      "id": 2
+    },
+    {
+      "productId": 2,
+      "quantity": 1,
+      "productImg": "https://via.placeholder.com/150",
+      "productName": "Áo Sơ Mi Trắng Nữ",
+      "productPrice": 249000,
+      "id": 3
+    }
+  ]
+}
