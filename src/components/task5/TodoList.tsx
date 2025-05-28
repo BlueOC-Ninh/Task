@@ -1,21 +1,12 @@
 import { IoClose } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
-import { useMemo } from "react";
-import { deleteTodo, markTodo } from "../../redux/slices/todos";
+import { deleteTodo, markTodo } from "../../redux/slices/todos/todos";
 import DeleteConfirmModal from "../DeleteConfirmModal";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useAppDispatch } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { selectFilteredTodos } from "../../redux/slices/todos/selector";
 const TodoList = () => {
-  const { todos, search, status } = useAppSelector((state) => state.todos);
-
-  const filteredTodos = useMemo(() => {
-    if (status === "all") {
-      return todos.filter((item) => item.name.includes(search));
-    }
-    const convertStatus = status === "done" ? true : false;
-    return todos.filter(
-      (item) => item.name.includes(search) && item.isDone === convertStatus
-    );
-  }, [search, status, todos]);
+  const filteredTodos = useSelector(selectFilteredTodos);
 
   const dispatch = useAppDispatch();
 
@@ -28,7 +19,7 @@ const TodoList = () => {
   };
   return (
     <div className="flex flex-col gap-4 w-full">
-      {filteredTodos.length > 0 &&
+      {filteredTodos?.length > 0 &&
         filteredTodos.map((item) => (
           <div
             key={item.id}
